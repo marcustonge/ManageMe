@@ -30,8 +30,8 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'simple_calendar'
-gem 'trix'
+gem 'simple_calendar', '~> 2.3'
+gem 'trix', '~> 0.9.9'
 gem 'stripe'
 
 

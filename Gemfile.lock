@@ -196,7 +196,7 @@ GEM
     stripe (5.39.0)
     thor (1.1.0)
     tilt (2.0.10)
-    trix (0.10.1)
+    trix (0.9.10)
       rails
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
@@ -245,11 +245,11 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   sidekiq (~> 6.1, >= 6.1.2)
-  simple_calendar
+  simple_calendar (~> 2.3)
   spring
   sqlite3 (~> 1.4)
   stripe
-  trix
+  trix (~> 0.9.9)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
