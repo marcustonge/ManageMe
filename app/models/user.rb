@@ -6,5 +6,6 @@ has_person_name
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  #User can have many events, if the user is destroyed then the event is destroyed
   has_many :events, dependent: :destroy
 end
