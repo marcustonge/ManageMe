@@ -1,4 +1,6 @@
-<nav class="bg-white mb-4 shadow rounded">
+<%#Small nav bar%>
+
+<nav class="bg-white mb-3 shadow rounded">
   <ul id="nav-tab" class="tabs list-reset flex">
 
     <li class="active" data-tab="calendar">
@@ -21,7 +23,7 @@
 <div class="bg-white p-10 border rounded">
   <div id="all-events" class="tab-panel">
 
-     <h1>Events</h1>
+     <h1 style="font-size:24px;"><strong>Events</strong></h1>
 
      <% events.each do |event| %>
         <div class="flex flex-wrap items-center justify-start p-4 border-b border-grey-light mb-6">
@@ -41,7 +43,7 @@
   </div>
 
   <div id="calendar" class="tab-panel active">
-    <h2>Event Calendar</h2>
+    <h1 style="font-size:24px;"><strong>Event Calendar</strong><h1>
     <div id="event-calendar">
       <%= render partial: "calendar", locals: {events: events}  %>
     </div>

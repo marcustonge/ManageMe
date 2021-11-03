@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ManageMe</title>
+    <title><%=Rails.application.class.module_parent.name%></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -32,11 +32,17 @@
   <% end %>
 
     <header class="bg-white">
-      <nav class="flex items-center justify-between flex-wrap bg-grey-lightest p-4 text-grey-darker border-b border-grey-light">
-        <div class="flex items-center flex-no-shrink mr-6">
+      <nav class="flex items-center justify-between flex-wrap bg-grey-lightest p-4 text-grey-darker border-b border-grey-light" style="display: flex;">
+        
+        <div class="flex items-center flex-no-shrink mr-6" >
+        <%# For some reason having the link applied to the image and text in the same tag causes the styling to not work correctly
+        so they are separated%>
           <%= link_to root_path, class:"link text-xl tracking-tight font-semibold" do %>
-            ManageMe<% end %>
+            <%= image_tag "ManageMeIcon.svg", alt: "ManageMeIcon", width:32%><%end%>
+          <%= link_to root_path, class:"link text-xl tracking-tight font-semibold" do %>
+            <%=Rails.application.class.module_parent.name%><% end %>
         </div>
+
         <div class="block lg:hidden">
           <button class="flex items-center px-3 py-2 border rounded text-grey border-grey hover:text-grey-dark hover:border-grey-dark">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>

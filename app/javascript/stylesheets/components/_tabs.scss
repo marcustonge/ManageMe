@@ -1,0 +1,30 @@
+#nav-tab .active a {
+    background-color: indigo;
+    color: white;
+  }
+  
+  .tab{
+    padding: 7.5px;
+    display: no-underline inline-block;
+    transition: ease 0.2s all;
+    margin-bottom: -1px;
+    color: indigo;
+
+    &:hover {
+        background: indigo;
+        color: white;
+    }
+
+    &:active{
+        color: white;
+    }
+  }
+  
+  .tab-panel {
+    display: none;
+  }
+  
+  .tab-panel.active {
+    display: block;
+  }
+  
