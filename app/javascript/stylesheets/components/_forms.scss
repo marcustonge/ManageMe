@@ -11,10 +11,11 @@
   display: block;
   min-width: 100%;
   color: black;
-  border-color: gray;
+  border-color: lightgray;
   border-radius: 2px;
-  border-width: 1px;
-  background-color: rgb(243, 239, 239);
+  line-height: 1.25;
+  background-color: white;
+  box-shadow: 0 0 0 0.2rem theme("colors.gray.200");
   padding-top: 2.5px;
   padding-bottom: 2.5px;
 }
@@ -40,8 +41,8 @@
   padding-left: 4px;
   padding-right: 4px;
   display: block;
-  background-color: rgb(243, 239, 239);
-  border-width: 1px;
+  min-width: 100%;
+  background-color: white;
   border-color: gray;
   color:darkslategray;
   border-radius: 2px;	
