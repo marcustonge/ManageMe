@@ -1,7 +1,7 @@
 <div class="max-w mx-10 my-10 m-auto">
   <div class="p-5 bg-white border border-gray rounded">
     <div class="flex flex-wrap justify-between items-center mb-5">
-      <h1><%= @event.name %></h1>
+      <h1 class="font-bold text-xl"><%= @event.name %></h1>
       <%= link_to "Cancel Event", event_path(@event), method: :delete, data: {confirm: "Are you sure you want to cancel this event?"},
       class: "btn btn-destroy" if admin? %>
     </div>
@@ -18,7 +18,7 @@
       </p>
     </div>
 
-    <h4>Comments</h4>
+    <h4 class="font-bold text-lg">Comments</h4>
     <hr class="border" />
     <% unless user_signed_in? %>
       <div class="bg-gray rounded p-4 mt-4 text-center">
@@ -28,10 +28,12 @@
     <% else %>
       <%# Will be used to render the comments form so users can enter
        comments on the event as a form of notes etc. %>      
+       <%= render 'comments/form' %>
     <% end %>
 
     <div id="comments">
       <%# will be used to render the comments for the given event %>
+      <%= render @event.comments %>
     </div>
 
   </div>

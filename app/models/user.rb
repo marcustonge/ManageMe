@@ -8,4 +8,5 @@ has_person_name
   
   #User can have many events, if the user is destroyed then the event is destroyed
   has_many :events, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
