@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    @comment = Comment.new
+    @task = Task.new
   end
 
   # GET /events/new

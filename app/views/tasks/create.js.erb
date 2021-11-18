@@ -1,0 +1,6 @@
+var tasks = document.getElementById("tasks");
+var taskField = document.getElementById("task_reply");
+var trixField = document.getElementById("task_reply_trix");
+tasks.insertAdjacentHTML("beforeend", "<%= escape_javascript(render(@task)) %>");
+taskField.value = "";
+trixField.innerHTML = "";

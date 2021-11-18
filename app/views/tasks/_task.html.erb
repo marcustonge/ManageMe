@@ -1,0 +1,13 @@
+<div class="flex items-start p-4 mt-4 border rounded">
+  <div class="flex-1 pl-4 flex items-start justify-between">
+    <div class="leading-normal">
+    <%# Sanitizes user input to protect against attacks such as XSS scripting %>
+      <p class="text-grey-dark text-xs"><strong><%= task.user.name%></strong> added a task <%= time_ago_in_words(task.created_at) %> ago</p>
+      <div class="text-grey-darkest"><%= sanitize task.reply %></div>
+    </div>
+
+    <% if author_of(task) %>
+      <%= link_to "Delete", event_task_path(task.event, task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-destroy" %>
+    <% end %>
+  </div>
+</div>

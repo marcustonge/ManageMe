@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_04_142448) do
-
-  create_table "comments", force: :cascade do |t|
-    t.text "reply"
-    t.integer "event_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["event_id"], name: "index_comments_on_event_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2021_11_18_161124) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -43,6 +33,16 @@ ActiveRecord::Schema.define(version: 2021_11_04_142448) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.text "reply"
+    t.integer "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["event_id"], name: "index_tasks_on_event_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -58,6 +58,6 @@ ActiveRecord::Schema.define(version: 2021_11_04_142448) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "events"
   add_foreign_key "events", "users"
+  add_foreign_key "tasks", "events"
 end

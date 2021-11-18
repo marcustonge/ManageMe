@@ -18,22 +18,22 @@
       </p>
     </div>
 
-    <h4 class="font-bold text-lg">Comments</h4>
+    <h4 class="font-bold text-lg">Tasks</h4>
     <hr class="border" />
     <% unless user_signed_in? %>
       <div class="bg-gray rounded p-4 mt-4 text-center">
         <p class="text-sm text-gray"><%= link_to "Login", new_user_session_path, class: "link"%>
-        or <%= link_to "Sign up", new_user_registration_path, class: "link" %> to comment.</p>
+        or <%= link_to "Sign up", new_user_registration_path, class: "link" %> to task.</p>
       </div>
     <% else %>
-      <%# Will be used to render the comments form so users can enter
-       comments on the event as a form of notes etc. %>      
-       <%= render 'comments/form' %>
+      <%# Will be used to render the tasks form so users can enter
+       tasks on the event as a form of notes etc. %>      
+       <%= render 'tasks/form' %>
     <% end %>
 
-    <div id="comments">
-      <%# will be used to render the comments for the given event %>
-      <%= render @event.comments %>
+    <div id="tasks">
+      <%# will be used to render the tasks for the given event %>
+      <%= render @event.tasks %>
     </div>
 
   </div>

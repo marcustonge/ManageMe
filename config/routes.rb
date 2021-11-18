@@ -2,7 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :events do
-    resources :comments
+    resources :tasks
   end
   devise_for :users
   root to: 'home#index'
