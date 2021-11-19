@@ -19,6 +19,7 @@
   </ul>
 </nav>
 
+<%# Displays the Events accessible to the current user %>
 <div class="bg-white p-10 border rounded" >
   <div id="all-events" class="tab-panel">
 
@@ -34,13 +35,17 @@
               <%= readable_time(event.start_time) %> &ndash;
               <%= readable_time(event.end_time) %>
             </div>
-          </div>
+            </div>
+            <%# This allows events to be cancelled if they're the correct user or an admin %>
+            <%= link_to "Cancel event", event, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-destroy ml-4"%>
+          
         </div>
 
-        <%= link_to "Cancel event", event, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-destroy ml-4" if admin? %>
+        
      <% end %>
   </div>
 
+<%# Displays a calendar with events on it that are available to the current user %>
   <div id="calendar" class="tab-panel active">
     <h1 style="font-size:24px;"><strong>Event Calendar</strong><h1>
     <div id="event-calendar">

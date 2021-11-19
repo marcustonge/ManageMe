@@ -6,7 +6,8 @@
       <div class="text-grey-darkest"><%= sanitize task.reply %></div>
     </div>
 
-    <% if author_of(task) %>
+    <%# allows the author of the task or an admin to delete their task %>
+    <% if author_of(task) | admin?%>
       <%= link_to "Delete", event_task_path(task.event, task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-destroy" %>
     <% end %>
   </div>

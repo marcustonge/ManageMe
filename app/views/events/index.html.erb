@@ -1,6 +1,10 @@
 <div class="container m-auto my-4" style="padding: 4px;">
-  <% unless current_user.events.any? %>
+  <%# if the current user has no events on their account and they're not an admin they are taken to the cta page which informs them to
+  schedule an event as otherwise no information about events can be shown. %>
+  <% if !current_user.events.any? & !current_user.admin? %>
     <%= render "events_cta" %>
+  
+  <%# else it will show a calendar with the events available to the user on %>
   <% else%>
     <%= render "events_landing", events: @events %>
   <% end %>
