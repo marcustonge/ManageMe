@@ -1,6 +1,7 @@
-<div class="flex flex-wrap items-center mb-5 text-indigo-darker">
+<div class="m-auto m-5 flex flex-wrap items-center mb-5" style="color:navy;">
   <div class="flex-1 flex justify-between items-center">
-    <div><h3 class="text-lg"><%= user.name %></h3> <%= user.username %> <% if current_user %>(You)<% end %></div>
+    <%# Shows the names and emails of accounts in the system for the admin to manage %>
+    <div><h3 class="text-xl"><%= user.name %> - <%= user.email %></h3></div>
     <p>Joined on <%= readable_time(user.created_at) %></p>
 
   </div>
@@ -8,7 +9,8 @@
 </div>
 
 <% if user.events.any? %>
-  <div class="block pl-2 border-l border-indigo-light mb-5">
+  <div class="block pl-2 border-l border-indigo-light mb-5" 
+  style="display: block;" >
     <p class="text-xs uppercase tracking-loose text-grey-darker pt-1">Upcoming Events</p>
     <% user.events.each do |event| %>
         <%= link_to event.name, event, class: "link my-2 inline-block" %>

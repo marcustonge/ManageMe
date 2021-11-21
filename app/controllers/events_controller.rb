@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :must_be_admin, only: [:active_sessions]
 
   # GET /events or /events.json
   def index
@@ -63,6 +64,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def active_events
+    @active_events = Event.where("end_time > ?", Time.now)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -72,5 +77,12 @@ class EventsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def event_params
       params.require(:event).permit(:name, :start_time, :end_time, :user_id)
+    end
+
+    
+    def must_be_admin
+        unless current_user.admin?
+            redirect_to events_path, alert: "You don't have permission to access to this page"
+        end
     end
 end

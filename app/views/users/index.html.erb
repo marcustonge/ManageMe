@@ -1,5 +1,8 @@
-<div class="container m-auto bg-white my-10 border border-grey-light p-6">
-    <h1 style="font-size: 16px; color: indigo;">Users</h1>
+<div style="padding: 10px;">
+<div class="container m-auto bg-white my-10 p-10 border rounded" >
+<%# Displays all emails in the system %>
+    <h1 class="pb-2 border-b mb-4" style="font-size: 32px; color: indigo;">Users</h1>
     <%# rails will look for a partial in the users directory and loop through it%>
     <%= render @users %>
+</div>
 </div>
