@@ -30,5 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  app_title: Events Manager
+  app_title: ManageMe
   app_description: Allows users to interact with a calendar of events
+
+  home:
+    contact:
+      title: Contact Us
+      contact_us: Complete the following form to get in touch with us.
