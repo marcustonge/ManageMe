@@ -1,11 +1,14 @@
-<div class="m-auto m-5 flex flex-wrap items-center mb-5" style="color:navy;">
+<div class="m-auto m-5 flex flex-wrap items-center mb-1" style="color:navy;">
   <div class="flex-1 flex justify-between items-center">
     <%# Shows the names and emails of accounts in the system for the admin to manage %>
     <div><h3 class="text-xl"><%= user.name %> - <%= user.email %></h3></div>
     <p>Joined on <%= readable_time(user.created_at) %></p>
 
   </div>
-  <%= link_to 'Delete User', users_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-destroy ml-4" if admin? %>
+  
+  <%= user %>
+
+  <%= link_to 'Delete User', registration_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-destroy ml-4" if admin? %>
 </div>
 
 <% if user.events.any? %>
@@ -13,7 +16,8 @@
   style="display: block;" >
     <p class="text-xs uppercase tracking-loose text-grey-darker pt-1">Upcoming Events</p>
     <% user.events.each do |event| %>
-        <%= link_to event.name, event, class: "link my-2 inline-block" %>
+        <p><%= link_to event.name, event, class: "link my-2" %></p>
     <% end %>
+    
   </div>
 <% end %>

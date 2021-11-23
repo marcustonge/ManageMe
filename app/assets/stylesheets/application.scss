@@ -4,3 +4,16 @@
 *= require simple_calendar
 *= require trix
 */
+
+//Adds a colour changing background animation, changes between 2 subtly off-white colors
+
+#myDIV {
+    background: #F8F8FF;
+    animation: mymove 2s infinite;
+    animation-direction: alternate;
+}
+  
+@keyframes mymove {
+    from {background-color: #F6F6FF;}
+    to {background-color: #F0F0FF}
+}
