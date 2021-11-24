@@ -20,6 +20,11 @@
   </div>
 
   <div class="mb-6">
+    <%= form.label :description, class: "label" %>
+    <%= form.text_field :description, class: "input" %>
+  </div>
+
+  <div class="mb-6">
     <%= form.label :start_time, class: "label" %>
     <div style="display:flex;align-items:center;justify-content:space-between;max-width:28rem;">
       <%= form.datetime_select :start_time, {start_day: Date.today, start_year: 
