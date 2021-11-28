@@ -5,10 +5,10 @@
     <p>Joined on <%= readable_time(user.created_at) %></p>
 
   </div>
-  
-  <%= user %>
-
-  <%= link_to 'Delete User', registration_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-destroy ml-4" if admin? %>
+  <%# Cannot delete admin accounts using the web interface %>
+  <% if user.admin != true %>
+    <%= link_to "Delete User", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-destroy ml-4" if admin? %>
+  <% end %>
 </div>
 
 <% if user.events.any? %>

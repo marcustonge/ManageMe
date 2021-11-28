@@ -8,6 +8,15 @@ class UsersController < ApplicationController
         @users = User.all
     end
 
+    #this defines the destroy method for user accounts
+    def destroy
+        @user = User.find(params[:id])
+    
+        if @user.destroy
+            redirect_to users_url, notice: "User deleted."
+        end
+    end
+
     #checks if the user is an admin
     private
     def must_be_admin

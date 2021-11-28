@@ -32,6 +32,10 @@
             <div>
               <%= link_to event.name, event, class: "link mr-4" %>
             </div>
+            <%# Displays the events owner if the user viewing the events is an admin %>
+            <div>
+              Owner: <%= User.find(event.user_id).name if admin?%>
+            </div>
             <div>
               <%= readable_time(event.start_time) %> &ndash;
               <%= readable_time(event.end_time) %>
