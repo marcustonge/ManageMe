@@ -2,6 +2,7 @@
 <html>
   <head>
     <title><%=Rails.application.class.module_parent.name%></title>
+    <%# Import tags to include javascript and stylesheets %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -30,14 +31,15 @@
       </div>
     <% end %>
   <% end %>
-
+    <%# The following section (header) contains the nav bar for the website that is visible on all pages to
+    allow users to navigate the site from anywhere on it %>
     <header class="bg-white">
       <nav class="flex items-center justify-between flex-wrap bg-grey-lightest p-4 text-grey-darker border-b border-grey-light" style="display: flex;">
         
         <div class="flex items-center flex-no-shrink mr-6" >
         <%# For some reason having the link applied to the image and text in the same tag causes the styling to not work correctly
         so they are separated%>
-          <%= link_to root_path, class:"link text-xl tracking-tight font-semibold" do %>
+          <%= link_to root_path do %>
             <%= image_tag "ManageMeIcon.svg", alt: "ManageMeIcon", width:32%><%end%>
           <%= link_to root_path, class:"link text-xl tracking-tight font-semibold" do %>
             <%=Rails.application.class.module_parent.name%><% end %>
@@ -48,6 +50,7 @@
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
           </button>
         </div>
+        <%# links to different parts of the site %>
         <div class="w-full block lg:flex-1 lg:flex items-center text-center lg:text-left">
           <div class="w-full block lg:flex lg:flex-row lg:flex-1 mt-2 lg:mt-0 text-center lg:text-left lg:justify-end">
             <% unless user_signed_in? %>
@@ -58,6 +61,7 @@
             <%= link_to "Event Calendar", events_path, class: "btn btn-default mr-2" %>
             <%= link_to "Schedule New Event", new_event_path, class: "btn btn-default mr-2" unless admin? %>
             <%= link_to "Contact Us", contact_path, class: "btn btn-default mr-2"%>
+            <%= link_to "About", about_path, class: "btn btn-default mr-2"%>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"btn btn-default mr-2" %>
             <% end %>
           </div>
@@ -70,6 +74,11 @@
     </main>
     
   </body>
-
-  <footer class="max-w m-auto text-center py-2"><strong>ManageMe</strong> - Created by Marcus Tonge</footer>
+  
+  <%# a footer with the sites name (if the name is updated then it will change too as it is based on the rails
+  application name) and my name %>
+  <br>
+  <hr class="border" />
+  <footer class="max-w m-auto text-center py-2"><strong>
+  <%=Rails.application.class.module_parent.name%></strong> - Created by Marcus Tonge</footer>
 </html>

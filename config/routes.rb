@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'active-events', to: "events#active_events"
   get 'contact', to: 'home#contact'
+  get 'about', to: 'home#about'
   post 'request_contact', to: 'home#request_contact'
   
   root to: 'home#index'
