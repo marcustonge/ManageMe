@@ -1,4 +1,4 @@
-<div class="max-w mx-10 m-auto">
+<div class="max-w mx-0 m-auto">
 <%#Small nav bar%>
 <nav class="bg-white mb-3 shadow rounded">
   <ul id="nav-tab" class="tabs list-reset flex">
@@ -21,28 +21,28 @@
 </nav>
 
 <%# Displays the Events accessible to the current user %>
-<div class="bg-white p-10 border rounded" >
+<div class="bg-white p-2 border rounded" >
   <div id="all-events" class="tab-panel">
 
      <h1 style="font-size:24px;"><strong>Events</strong></h1>
 
      <% events.each do |event| %>
-        <div class="flex flex-wrap items-center justify-start p-4 border-b border-grey-light mb-6">
+        <div class="flex flex-wrap items-center justify-start p-2 border-b border-grey-light mb-6">
           <div class="flex-1 flex justify-between">
             <div>
               <%= link_to event.name, event, class: "link mr-4" %>
             </div>
             <%# Displays the events owner if the user viewing the events is an admin %>
-            <div>
-              Owner: <%= User.find(event.user_id).name if admin?%>
-            </div>
+            <% if admin? %>
+              Owner: <%= User.find(event.user_id).name %>
+            <% end %>
             <div>
               <%= readable_time(event.start_time) %> &ndash;
               <%= readable_time(event.end_time) %>
             </div>
-            </div>
-            <%# This allows events to be cancelled if they're the correct user or an admin %>
-            <%= link_to "Cancel event", event, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-destroy ml-4"%>
+          </div>
+          <%# This allows events to be cancelled if they're the correct user or an admin %>
+          <%= link_to "Cancel event", event, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-destroy ml-4"%>
           
         </div>
 
