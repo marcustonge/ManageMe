@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get 'about', to: 'home#about'
   post 'request_contact', to: 'home#request_contact'
 
-  
+
+  #Creates a function called admin_destroy_user that is used in the admin panel to delete the selected user.
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   resources :users
 
