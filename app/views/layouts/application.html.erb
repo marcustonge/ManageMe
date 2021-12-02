@@ -13,7 +13,6 @@
 
     <%= stylesheet_pack_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag "https://js.stripe.com/v3/", 'data-turbolinks-track': 'reload' %>
 
   </head>
 
@@ -50,16 +49,16 @@ under the nav bar it will display the current page's contents then a footer with
         <div class="w-full block lg:flex-1 lg:flex items-center text-center lg:text-left">
           <div class="w-full block lg:flex lg:flex-row lg:flex-1 mt-2 lg:mt-0 text-center lg:text-left lg:justify-end">
             <% unless user_signed_in? %>
-            <%= link_to "Login", new_user_session_path, class:"btn btn-default mr-2" %>
-            <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-default" %>
+            <%= link_to t('.login'), new_user_session_path, class:"btn btn-default mr-2" %>
+            <%= link_to t('.signup'), new_user_registration_path, class:"btn btn-default" %>
             <% else %>
-            <%= link_to "Manage User Accounts", users_path, class: "btn btn-default mr-2" if admin?%>
-            <%= link_to "View Active Events", active_events_path, class: "btn btn-default mr-2" if admin? %>
-            <%= link_to "Event Calendar", events_path, class: "btn btn-default mr-2" %>
-            <%= link_to "Schedule New Event", new_event_path, class: "btn btn-default mr-2" unless admin? %>
-            <%= link_to "Contact Us", contact_path, class: "btn btn-default mr-2"%>
-            <%= link_to "About", about_path, class: "btn btn-default mr-2"%>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"btn btn-default mr-2" %>
+            <%= link_to t('.useracc'), users_path, class: "btn btn-default mr-2" if admin?%>
+            <%= link_to t('.active'), active_events_path, class: "btn btn-default mr-2" if admin? %>
+            <%= link_to t('.calendar'), events_path, class: "btn btn-default mr-2" %>
+            <%= link_to t('.new'), new_event_path, class: "btn btn-default mr-2" unless admin? %>
+            <%= link_to t('.contact'), contact_path, class: "btn btn-default mr-2"%>
+            <%= link_to t('.about'), about_path, class: "btn btn-default mr-2"%>
+            <%= link_to t('.signout'), destroy_user_session_path, method: :delete, class:"btn btn-default mr-2" %>
             <% end %>
           </div>
         </div>
@@ -77,6 +76,6 @@ under the nav bar it will display the current page's contents then a footer with
   <br>
   <hr class="border" />
   <footer class="max-w m-auto text-center py-2"><strong>
-    &copy<%=Rails.application.class.module_parent.name%></strong> - Created by Marcus Tonge
+    &copy<%=Rails.application.class.module_parent.name%></strong> - <%= t('.footername') %>
   </footer>
 </html>

@@ -2,20 +2,20 @@
   <div class="flex-1 flex justify-between items-center">
     <%# Shows the names and emails of accounts in the system for the admin to manage %>
     <div><h3 class="text-xl"><%= user.name %> - <%= user.email %></h3></div>
-    <p>Joined on <%= readable_time(user.created_at) %></p>
+    <p><%= t('.join') %><%= readable_time(user.created_at) %></p>
 
   </div>
   <%# Cannot delete admin accounts using the web interface as that could be problematic, so for my
   design I've made it so that you need to revoke or grant admin status using the rails console on the host machine %>
   <% if user.admin != true %>
-    <%= link_to "Delete User", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-destroy ml-4" if admin? %>
+    <%= link_to t('.delete'), admin_destroy_user_path(user), method: :delete, data: { confirm: t('.sure') }, class: "btn btn-destroy ml-4" if admin? %>
   <% end %>
 </div>
 
 <% if user.events.any? %>
   <div class="block pl-2 border-l border-indigo-light mb-5" 
   style="display: block;" >
-    <p class="text-xs uppercase tracking-loose text-grey-darker pt-1">Upcoming Events</p>
+    <p class="text-xs uppercase tracking-loose text-grey-darker pt-1"><%= t('.upcoming') %></p>
     <% user.events.each do |event| %>
         <p><%= link_to event.name, event, class: "link my-2" %></p>
     <% end %>

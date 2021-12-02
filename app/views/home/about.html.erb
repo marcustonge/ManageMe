@@ -1,20 +1,12 @@
 <div class="max-w mx-10 my-10 m-auto text-center">
     <div div class="p-5 bg-white border border-gray rounded">
-        <h1 class="font-bold text-2xl">About Us</h1>
-        <p>This site was created by Marcus Tonge for the 'Web Applications Development' module.</p>
-        <p>This page is intended to highlight aspects of what I have done and to explain the admin features.</p>
+        <h1 class="font-bold text-2xl"><%= t('.title') %></h1>
+        <p><%= t('.part1') %></p>
+        <p><%= t('.part2') %></p>
         <br>
-        <p>My website is a take on the example 'Events management' topic, which has calendar events with tasks and allows you to manage events. 
-        I have three model classes with validations and associations, they are: Users, Events, and Tasks. A user can have many events and tasks and events can have many tasks related to them.
-        As you would be able to see I have a home and contact page and a hefty navigation bar to access all the pages of my application conveniently. 
-        I have used boilerplates for my HTML and CSS code, partials and used Javascript for my application. 
-        I have controllers for each of my models and have added routes appropriately. 
-        There is a contact mailer accessible by the nav bar and the mailer has previews that are visible in the terminal when used. 
-        I used database migrations for many things and used it to add extra features such as descriptions to my events so you don't need to rely entirely on tasks for information regarding the event.</p>
+        <p><%= t('.part3') %></p>
         <br>
-        <p class="underline">Extra information about admin accounts:</p>
-        <p>Admin accounts are created using the rails console and updating a user's admin field to 'true'.</p>
-        <p>You can not delete admin accounts using the web interface as that could be problematic (security issues etc.), so for my
-  design I've made it so that you need to grant or revoke admin status using the rails console on the host machine.</p>
+        <p class="underline"><%= t('.title2') %></p>
+        <p><%= t('.part4') %></p>
     </div>
 </div>

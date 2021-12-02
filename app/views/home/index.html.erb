@@ -4,16 +4,16 @@
 
     <div class="max-w-lg mx-auto mt-16 text-center">
       <h1 class="mb-4 text-3xl font-black"><%=Rails.application.class.module_parent.name%></h1>
-      <p class="text-lg leading-snug">For all your calendar based management needs.</p>
+      <p class="text-lg leading-snug"><%= t('.slogan')%></p>
     </div>
 
     <% unless user_signed_in? %>
-    <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary my-4" %>
+    <%= link_to t('.signup'), new_user_registration_path, class:"btn btn-primary my-4" %>
     <% else %>
-    <%= link_to "Schedule a new session", new_event_path, class:"btn btn-primary my-4" %>
+    <%= link_to t('.schedule'), new_event_path, class:"btn btn-primary my-4" %>
     <% end %>
   
-    <p class="text-lg leading-snug" style= "padding-top: 15px;">More information can be found in the 'About' section of the website.</p>
+    <p class="text-lg leading-snug" style= "padding-top: 15px;"><%= t('.info') %></p>
   </div>
 </div>
 
@@ -22,8 +22,8 @@
   <div class="py-10 lg:py-16 px-4 flex flex-wrap items-center justify-between">
 
     <div class="lg:w-1/2 w-full mb-4 lg:mb-0">
-      <h3 class="mb-2 text-xl font-bold">Manage your schedule effectively</h3>
-      <p class="leading-normal">Create tasks per event you schedule so you are always on track with what needs to be done.</p>
+      <h3 class="mb-2 text-xl font-bold"><%= t('.catch1')%></h3>
+      <p class="leading-normal"><%= t('.catch12') %></p>
     </div>
 
     <div class="lg:w-1/2 w-full text-center">
@@ -37,8 +37,8 @@
     </div>
 
     <div class="lg:w-1/2 w-full">
-      <h3 class="mb-1 text-xl font-bold">Itemize your day</h3>
-      <p class="leading-normal">Use the platform to create events to schedule your day and keep you up to date.</p>
+      <h3 class="mb-1 text-xl font-bold"><%= t('.catch2') %></h3>
+      <p class="leading-normal"><%= t('.catch22') %></p>
     </div>
   </div>
 </div>

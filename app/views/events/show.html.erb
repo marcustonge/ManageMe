@@ -3,34 +3,34 @@
     <div class="flex flex-wrap justify-between items-center mb-5">
       <h1 class="font-bold text-2xl"><%= @event.name %></h1>
       
-      <%= link_to "Cancel Event", event_path(@event), method: :delete, data: {confirm: "Are you sure you want to cancel this event?"},
+      <%= link_to t('.cancel'), event_path(@event), method: :delete, data: {confirm: t('.cancel')},
       class: "btn btn-destroy" if admin? %>
     </div>
 
     <%# will only show the event description text on screen if the description for the
     selected event is not nil %>
     <% if @event.description != nil %>
-      <p class="py-3"><strong>Event description:</strong> <%= @event.description %></p>
+      <p class="py-3"><strong><%= t('.eventdesc') %>: </strong> <%= @event.description %></p>
     <% end %>
 
     <div class="border p-6 bg-grey-lighter mb-5 flex items-center justify-between">
       <p class="border-2 py-3 px-4 border-indigo-700 rounded-full text-sm text-indigo">
-        Start time: <span class="font-bold"><%= readable_time(@event.start_time)%></span>
+        <%= t('.starttime') %>: <span class="font-bold"><%= readable_time(@event.start_time)%></span>
       </p>
       
       <div class="border-t-4 border-indigo-700 border-dashed max-h-2 flex-1"></div>
 
       <p class="border-2 py-3 px-4 border-indigo-700 rounded-full text-sm text-indigo">
-        End time: <span class="font-bold"><%= readable_time(@event.end_time) %></span>
+        <%= t('.endtime') %>: <span class="font-bold"><%= readable_time(@event.end_time) %></span>
       </p>
     </div>
 
-    <h4 class="font-bold text-lg">Tasks</h4>
+    <h4 class="font-bold text-lg"><%= t('.tasks') %></h4>
     <hr class="border" />
     <% unless user_signed_in? %>
       <div class="bg-gray rounded p-4 mt-4 text-center">
-        <p class="text-sm text-gray"><%= link_to "Login", new_user_session_path, class: "link"%>
-        or <%= link_to "Sign up", new_user_registration_path, class: "link" %> to task.</p>
+        <p class="text-sm text-gray"><%= link_to t('.login'), new_user_session_path, class: "link"%>
+        <%= t('.or') %> <%= link_to t('.signup'), new_user_registration_path, class: "link" %> <%= t('.task') %></p>
       </div>
     <% else %>
       <%# Will be used to render the tasks form so users can enter
