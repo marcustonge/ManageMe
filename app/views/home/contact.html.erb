@@ -19,7 +19,7 @@
     </div>
     <div class="mb-6">
       <%= label_tag :message, t('.message'), class: "label" %>
-      <%= text_field_tag :message, '', title: t('.enter_message'), class:"input" %>
+      <%= text_area_tag :message, '', title: t('.enter_message'), class:"input" %>
     </div>
       <%= submit_tag t('.submit'), class: "btn btn-primary text-base py-1 px-3" %>
   <% end %>
