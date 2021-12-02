@@ -8,6 +8,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     @event = events(:one)
+    @event2 = events(:two)
   end
 
   # The sign in and out is used to authenticate the testers as admin to allow access to the events url
@@ -19,7 +20,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     sign_out :user
   end
   
-  test "should create event" do
+  test "should create event with description" do
     sign_in users(:admin)
     assert_difference('Event.count') do
       post events_url, params: { event: { name: @event.name, description: @event.description, start_time: @event.start_time, end_time: @event.end_time, user_id: @event.user_id } }
@@ -76,5 +77,15 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_response 302
   end
 
+  test "should create event without description" do
+    sign_in users(:admin)
+    assert_difference('Event.count') do
+      post events_url, params: { event: 
+      { name: @event2.name, start_time: @event2.start_time, 
+      end_time: @event2.end_time, user_id: @event2.user_id } }
+    end
+    assert_redirected_to event_url(Event.last)
+    sign_out :user
+  end
 
 end
