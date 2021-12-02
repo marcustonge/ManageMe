@@ -7,6 +7,9 @@ class TasksController < ApplicationController
         @task = Task.new
     end
 
+    def index
+    end
+
     def create
         @task = @event.tasks.create(params[:task].permit(:reply, :event_id))
         @task.user_id = current_user.id
