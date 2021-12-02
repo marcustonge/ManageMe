@@ -40,7 +40,7 @@ en:
         I have controllers for each of my models and have added routes appropriately. 
         There is a contact mailer accessible by the nav bar and the mailer has previews that are visible in the terminal when used. 
         I used database migrations for many things and used it to add extra features such as descriptions to my events so you don't need to rely entirely on tasks for information regarding the event. 
-        Localised strings have been used throughout the application."
+        Localised strings have been used throughout the application. The controllers, models and mailer have had tests written for them aswell."
       title2: "Extra information about admin accounts:"
       part4: "Admin accounts are created using the rails console and updating a user's admin field to 'true'. You can not delete admin accounts using the web interface as that could be problematic (security issues etc.), so for my
         design I've made it so that you need to grant or revoke admin status using the rails console on the host machine."
