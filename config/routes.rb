@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
+#adds in routing for the application
 Rails.application.routes.draw do
+
   resources :events do
     resources :tasks
   end

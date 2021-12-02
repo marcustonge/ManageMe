@@ -5,7 +5,8 @@
     <p>Joined on <%= readable_time(user.created_at) %></p>
 
   </div>
-  <%# Cannot delete admin accounts using the web interface %>
+  <%# Cannot delete admin accounts using the web interface as that could be problematic, so for my
+  design I've made it so that you need to revoke or grant admin status using the rails console on the host machine %>
   <% if user.admin != true %>
     <%= link_to "Delete User", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-destroy ml-4" if admin? %>
   <% end %>

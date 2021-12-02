@@ -1,18 +1,22 @@
-<div class="py-5 lg:py-20 px-4 border-b border-grey-light mb-4 text-indigo-darker">
+<%# This page contains the main home index of the site, it has a little bit of information about what the site can do etc. %>
+<div class="py-3 lg:py-10 px-4 border-b border-grey-light mb-4 text-indigo-darker">
   <div class="container m-auto text-center">
 
-  <div class="max-w-lg mx-auto mt-16 text-center">
-  <h1 class="mb-4 text-3xl font-black"><%=Rails.application.class.module_parent.name%></h1>
-  <p class="text-lg leading-snug">For all your calendar based management needs.</p>
+    <div class="max-w-lg mx-auto mt-16 text-center">
+      <h1 class="mb-4 text-3xl font-black"><%=Rails.application.class.module_parent.name%></h1>
+      <p class="text-lg leading-snug">For all your calendar based management needs.</p>
+    </div>
 
-</div>
     <% unless user_signed_in? %>
     <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary my-4" %>
     <% else %>
     <%= link_to "Schedule a new session", new_event_path, class:"btn btn-primary my-4" %>
     <% end %>
+  
+    <p class="text-lg leading-snug" style= "padding-top: 15px;">More information can be found in the 'About' section of the website.</p>
   </div>
 </div>
+
 
 <div class="max-w-lg m-auto">
   <div class="py-10 lg:py-16 px-4 flex flex-wrap items-center justify-between">

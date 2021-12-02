@@ -15,6 +15,7 @@ document.addEventListener("turbolinks:load", () => {
         });
       }
     
+    //toggles active and inactive panels
     function onTabClick(event) {
       const activeTabs = document.querySelectorAll('.active');
   
@@ -25,7 +26,7 @@ document.addEventListener("turbolinks:load", () => {
   
       event.target.parentElement.classList.add('active');
 
-      // show and hide tab panels
+      //shows and hides tab panels
       var tabPanel = document.getElementById(event.target.href.split("#")[1]);
       tabPanel.classList.toggle('active');
     }

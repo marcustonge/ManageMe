@@ -1,3 +1,5 @@
+<%# This is for the admins on the site, shows all currently ongoing events that have not ended yet,
+the admin can then click on the event if they need to cancel it by going to the events page %>
 <div style="padding: 10px;">
 <div class="container m-auto bg-white my-10 border rounded border-grey p-10">
     <h1 class="text-2xl" style="color: black; font-weight: bold;">Active Events</h1>
@@ -9,13 +11,13 @@
                     <%= link_to event.name, event, class: "link mr-4" %>
                 </div>
                 <div>
+                Owner: <%= User.find(event.user_id).name %>
+                </div>
+                <div>
                     <%= readable_time(event.start_time) %> &ndash;
                     <%= readable_time(event.end_time) %>
                 </div>
             </div>
-
-            <%= link_to 'Cancel Event', event, method: :delete, data: {confirm: "Are you sure you wish to delete this event?"},
-            class: "btn btn-destroy ml-4" if admin? %>
         </div>
     <% end %>
 </div>

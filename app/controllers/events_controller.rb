@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  #authenticates user before any action, to view active sessions the user must be an admin
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :must_be_admin, only: [:active_sessions]
@@ -84,7 +85,8 @@ class EventsController < ApplicationController
       params.require(:event).permit(:name, :description, :start_time, :end_time, :user_id)
     end
 
-    
+   
+    #checks if the user is an admin, if not then they are redirected to the events home page
     def must_be_admin
         unless current_user.admin?
             redirect_to events_path, alert: "You don't have permission to access to this page"

@@ -14,10 +14,11 @@
     <%= stylesheet_pack_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "https://js.stripe.com/v3/", 'data-turbolinks-track': 'reload' %>
-    <%= tag :meta, name: "stripe-public-key", content: Rails.application.credentials.stripe_publishable_key %>
 
   </head>
 
+<%# This page is the main application layout, it loads any flash messages, then it displays the nav bar at the top and then
+under the nav bar it will display the current page's contents then a footer with a copyright and my name is displayed at the bottom %>
  <body id="myDIV">
   <% flash.each do |type, message| %>
     <% if type == "alert" %>
@@ -53,6 +54,7 @@
             <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-default" %>
             <% else %>
             <%= link_to "Manage User Accounts", users_path, class: "btn btn-default mr-2" if admin?%>
+            <%= link_to "View Active Events", active_events_path, class: "btn btn-default mr-2" if admin? %>
             <%= link_to "Event Calendar", events_path, class: "btn btn-default mr-2" %>
             <%= link_to "Schedule New Event", new_event_path, class: "btn btn-default mr-2" unless admin? %>
             <%= link_to "Contact Us", contact_path, class: "btn btn-default mr-2"%>
