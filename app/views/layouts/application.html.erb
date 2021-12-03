@@ -49,6 +49,7 @@ under the nav bar it will display the current page's contents then a footer with
         <div class="w-full block lg:flex-1 lg:flex items-center text-center lg:text-left">
           <div class="w-full block lg:flex lg:flex-row lg:flex-1 mt-2 lg:mt-0 text-center lg:text-left lg:justify-end">
             <% unless user_signed_in? %>
+            <%= link_to t('.about'), about_path, class: "btn btn-default mr-2"%>
             <%= link_to t('.login'), new_user_session_path, class:"btn btn-default mr-2" %>
             <%= link_to t('.signup'), new_user_registration_path, class:"btn btn-default" %>
             <% else %>
