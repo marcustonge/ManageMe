@@ -21,7 +21,7 @@ class TasksController < ApplicationController
             format.html {redirect_to event_path(@event)}
             format.js # render create.js.erb
         else
-            format.html {redirect_to event_path(@event), notice: "Your task was not saved. Please try again if you want to add a task."}
+            format.html {redirect_to event_path(@event), notice: t('controllers.tasks.notsaved')}
             format.js
         end
     end

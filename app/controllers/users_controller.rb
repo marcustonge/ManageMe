@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     
         if @user.destroy
-            redirect_to users_url, notice: "User deleted."
+            redirect_to users_url, notice: t('controllers.users.deleted')
         end
     end
 
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     private
     def must_be_admin
         unless current_user.admin?
-            redirect_to events_path, alert: "You don't have permission to access to this page"
+            redirect_to events_path, alert: t('controllers.nopermission')
         end
     end
 end

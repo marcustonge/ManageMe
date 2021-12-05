@@ -1,24 +1,8 @@
-# README
+Running 'bundle', 'rails db:migrate', 'rails webpacker:install', and using the correct versions of gems listed will allow this application to run properly.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I have populated the development database with some examples for your convenience.
 
-Things you may want to cover:
+The passwords for all the accounts are 'password'.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The admin account emails are "admin@email.com" and "admin2@email.com".
+The user account emails are "mt01158@surrey.ac.uk", "test@email.com", "test2@email.com", "test3@email.com"

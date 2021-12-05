@@ -1,6 +1,17 @@
 require "test_helper"
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
+
+    test 'should get home' do
+        get root_url
+        assert_response :success
+
+        assert_select 'h1', 'ManageMe'
+        assert_select 'p', 'For all your calendar based management needs.'
+        assert_select 'h3', 'Manage your schedule effectively'
+    end
+
+
     test "should get contact" do
         get contact_url
         assert_response :success

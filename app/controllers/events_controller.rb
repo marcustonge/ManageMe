@@ -35,7 +35,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: "Event was successfully created." }
+        format.html { redirect_to @event, notice: t('controllers.events.created') }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -48,7 +48,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: "Event was successfully updated." }
+        format.html { redirect_to @event, notice: t('controllers.events.updated') }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,7 +61,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
+      format.html { redirect_to events_url, notice: t('controllers.events.destroyed') }
       format.json { head :no_content }
     end
   end
@@ -76,7 +76,7 @@ class EventsController < ApplicationController
       if Event.exists?(params[:id])
         @event = Event.find(params[:id])
       else
-        redirect_to events_path, alert: "The chosen event does not exist"
+        redirect_to events_path, alert: t('controllers.events.dne')
       end
     end
 
@@ -89,7 +89,7 @@ class EventsController < ApplicationController
     #checks if the user is an admin, if not then they are redirected to the events home page
     def must_be_admin
         unless current_user.admin?
-            redirect_to events_path, alert: "You don't have permission to access to this page"
+            redirect_to events_path, alert: t('controllers.nopermission')
         end
     end
 end

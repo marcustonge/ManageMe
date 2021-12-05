@@ -27,12 +27,19 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to event_url(Event.last)
+
+    get event_url(Event.last)
+    assert_select 'h1', @event.name
+    assert_select 'p', "Event description:  " + @event.description
+
     sign_out :user
   end
 
   test "should show event" do
     sign_in users(:admin)
     get event_url(@event)
+    assert_select 'h1', @event.name
+    assert_select 'p', "Event description:  " + @event.description
     assert_response :success
     sign_out :user
   end
@@ -58,6 +65,9 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
     sign_in users(:admin)
     get new_event_url
+    assert_select 'h1', "Schedule a new Event"
+    assert_select 'p', "Schedule a new Event by filling in the details below."
+
     assert_response :success
     sign_out :user
   end
@@ -84,7 +94,13 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
       { name: @event2.name, start_time: @event2.start_time, 
       end_time: @event2.end_time, user_id: @event2.user_id } }
     end
+
     assert_redirected_to event_url(Event.last)
+    
+    get event_url(Event.last)
+    assert_select 'h1', @event.name
+    assert_select 'p', {count: 0, text: "Event description:  " + @event.description}
+
     sign_out :user
   end
 
@@ -92,6 +108,10 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:admin)
     
     assert @event.valid?
+
+    get event_url(@event)
+    assert_select 'h1', @event.name
+    
     sign_out :user
   end
 
