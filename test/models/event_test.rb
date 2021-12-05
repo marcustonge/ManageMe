@@ -4,6 +4,16 @@ class EventTest < ActiveSupport::TestCase
   
   setup do
     @event = events(:one)
+    @event2 = events(:two)
+    @event3 = events(:invalid)
+  end
+
+  test "should create valid event" do
+    assert @event.valid?
+  end
+  
+  test "should create invalid event" do
+    assert_not @event3.valid?
   end
 
   #an event with no parameters such as name, start time, end time
@@ -20,16 +30,14 @@ class EventTest < ActiveSupport::TestCase
     end
   end
 
-  #Can't test times as it does not work in the assert equal
-  #field and for a reason most likely related to events being
-  #related to users I cannot set the event user this way
-  test "should create an event with the correct attributes" do
-    event = Event.create({name: @event.name, description: @event.description,
-    start_time: @event.start_time, end_time: @event.end_time,
-    user: @event.user})
-    
-    assert_equal "MyString", event.name
-    assert_equal "Test description", event.description
-
+  test "should create valid event with description" do
+    assert @event.valid?
   end
+
+  test "should create valid event without description" do
+    assert @event2.valid?
+  end
+  
+  
+  
 end

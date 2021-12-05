@@ -43,6 +43,12 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "Last", user.last_name
     assert_equal 4, user.id
     assert_equal "firstlast@email.com", user.email
+    assert @user.valid?
   end
 
+  test "should delete user account" do
+    assert_difference("User.count",-1) do
+      @user.destroy
+    end
+  end
 end

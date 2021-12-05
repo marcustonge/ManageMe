@@ -1,7 +1,7 @@
 <div class="m-auto m-5 flex flex-wrap items-center mb-1" style="color:navy;">
   <div class="flex-1 flex justify-between items-center">
     <%# Shows the names and emails of accounts in the system for the admin to manage %>
-    <div><h3 class="text-xl"><%= user.name %> - <%= user.email %></h3></div>
+    <div><h3 class="text-xl"><%= user.name %> - <%= user.email %><strong><% if user.admin? %><%= t('.admin') %><%end%></strong></h3></div>
     <p><%= t('.join') %><%= readable_time(user.created_at) %></p>
 
   </div>
@@ -15,6 +15,7 @@
 <% if user.events.any? %>
   <div class="block pl-2 border-l border-indigo-light mb-5" 
   style="display: block;" >
+
     <p class="text-xs uppercase tracking-loose text-grey-darker pt-1"><%= t('.upcoming') %></p>
     <% user.events.each do |event| %>
         <p><%= link_to event.name, event, class: "link my-2" %></p>

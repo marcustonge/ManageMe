@@ -9,14 +9,13 @@ class TaskTest < ActiveSupport::TestCase
   #tests whether the task 'create' method works correctly and
   #assigns the correct information as specified by tasks.yml :one
   test "should be a valid task" do
-    task = Task.create({id: @task.id, reply: @task.reply, user_id: @task.user_id, event_id: @task.event_id})
-    assert_equal 1, task.id
-    assert_equal "<div>Example Task</div>", task.reply
-    assert_equal 1, task.event_id
-    assert_equal 1, task.user_id
+    assert_equal 1, @task.id
+    assert_equal "<div>Example Task</div>", @task.reply
+    assert_equal 1, @task.event_id
+    assert_equal 1, @task.user_id
   end
 
-  #tests whether the destroy method
+  #tests whether the destroy method works
   test "should delete task" do
     assert_difference('Task.count', -1) do
       @task.destroy

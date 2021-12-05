@@ -9,7 +9,7 @@
 
     <%# will only show the event description text on screen if the description for the
     selected event is not nil %>
-    <% if @event.description != nil %>
+    <% if @event.description != "" %>
       <p class="py-3"><strong><%= t('.eventdesc') %>: </strong> <%= @event.description %></p>
     <% end %>
 

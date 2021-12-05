@@ -1,4 +1,7 @@
 /*
+  
+  --- Dynamic Nav Bar ---
+
   JavaScript for the events_landing page, allows the nav bar to show/hide panels.
   It listens for the turbolinks 'load' trigger then toggles the 'active' state
   of the tabs, so currently active tabs will be made inactive and inactive tabs

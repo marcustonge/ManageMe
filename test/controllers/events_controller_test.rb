@@ -88,4 +88,11 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     sign_out :user
   end
 
+  test "should return correct event information upon creation" do
+    sign_in users(:admin)
+    
+    assert @event.valid?
+    sign_out :user
+  end
+
 end

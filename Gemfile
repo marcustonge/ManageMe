@@ -51,8 +51,6 @@ group :development do
   #gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   
-  # Generates a test coverage report so you can what percentage of cases the tests cover.
-  gem 'simplecov'
 
 end
 

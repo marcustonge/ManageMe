@@ -5,10 +5,15 @@ one:
   description: Test description
   start_time: 2021-10-15 14:26:31
   end_time: 2021-10-18 14:26:31
-  user: one
+  user_id: 1
 
 two:
   name: MyString
   start_time: 2021-10-15 14:26:31
   end_time: 2021-10-18 14:26:31
-  user: two
+  user_id: 2
+
+invalid:
+  name: MyString
+  start_time: 2021-10-15 14:26:31
+  end_time: 2021-10-18 14:26:31
